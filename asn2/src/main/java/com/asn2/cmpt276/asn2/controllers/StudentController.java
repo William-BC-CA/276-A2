@@ -19,8 +19,8 @@ public class StudentController {
 
     @Autowired
     private StudentRepository studentRepo;
-    @GetMapping("/students/show")
-    public String getAllUsers(Model model){
+    @GetMapping("/students/view")
+    public String getAllStudents(Model model){
         System.out.println("Getting all students");
         List<Student> students = studentRepo.findAll();
         model.addAttribute("stu", students);
@@ -40,7 +40,7 @@ public class StudentController {
         }
         else {
             model.addAttribute("students", students);
-            return "students/protected"; // Accessible to users that are logged in
+            return "students/protected"; // Accessible to students that are logged in
         }
     }
 }

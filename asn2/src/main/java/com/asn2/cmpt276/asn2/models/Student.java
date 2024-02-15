@@ -1,6 +1,13 @@
 package com.asn2.cmpt276.asn2.models;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "students")
 public class Student {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int uid;
     private String name;
     private double weight;
     private double height;
@@ -8,6 +15,14 @@ public class Student {
     private double gpa;
     
     public Student() {
+    }
+
+    public int getUid() {
+        return uid;
+    }
+
+    public void setUid(int uid) {
+        this.uid = uid;
     }
 
     public Student(String name, double weight, double height, String hair_colour, double gpa) {
