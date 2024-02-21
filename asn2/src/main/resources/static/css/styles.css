@@ -8,6 +8,9 @@ body{
     background-image: url('../img/rodion-kutsaiev-PEm_sLmJT-w-unsplash-compressed.jpg');
     background-attachment: fixed;
     background-size: cover;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 /* CONTAINER CONFIG */
@@ -97,6 +100,24 @@ nav ul a li{
 /* Font Control*/
 .container header, footer{
     font-family: 'Concert One', cursive;
+}
+
+/* Thymeleaf Show All Students Control */
+#listStudents table{
+    border-collapse: collapse;
+    border: 1px solid black;
+    /* text-align: center; */
+    margin: auto;
+    width: 100%;
+}
+
+#listStudents table tr th, #listStudents table tr td{
+    border: 1px solid black;
+    padding: 20px;
+}
+
+#listStudents table tr td{
+    text-align: center;
 }
 
 
