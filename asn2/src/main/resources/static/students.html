@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>StudTrack - Student Tracking App</title>
+</head>
+<body>
+    <div class = "container">
+        <header>
+            <h1 title = "StudTrack">StudTrack</h1>
+            <nav>
+                <ul>
+                    <!-- <li><button onclick="window.location.href = '/home'">Home</button></li>
+                    <li><button onclick="window.location.href = '/students'">Students</button></li>
+                    <li><button onclick="window.location.href = '/about'">About</button></li> -->
+                    <a href="/home"><li>Home</li></a>
+                    <a href="/students"><li>Students</li></a>
+                    <a href="/about"><li>About</li></a>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <h2>List of Students</h2>
+            <div id = "listStudents" style = "overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Weight</th>
+                        <th>Height</th>
+                        <th>Hair Colour</th>
+                        <th>GPA</th>
+                    </tr>
+                    <tr th:each = "student : ${stu}">
+                        <!-- <div th:switch = "${student.name}">
+                            <td th:case = "''">N/A</td>
+                        </div> -->
+                        <!-- <tr th:if = "${student.name == null} && ${student.weight == null} && ${student.height == null} && ${student.hair_colour == null} && ${student.gpa == null}">
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                        </tr>
+                        <tr th:else = "${student.name != null} && ${student.weight != null} && ${student.height != null} && ${student.hair_colour != null} && ${student.gpa != null}">
+                            <td th:text = "${student.name}"></td>
+                            <td th:text = "${student.weight}"></td>
+                            <td th:text = "${student.height}"></td>
+                            <td th:text = "${student.hair_colour}"></td>
+                            <td th:text = "${student.gpa}"></td>
+                        </tr> -->
+                        <!-- <tr>
+                            <td th:text="${student != null && student.name != null ? student.name : 'N/A'}"></td>
+                            <td th:text="${student != null && student.weight != null ? student.weight : 'N/A'}"></td>
+                            <td th:text="${student != null && student.height != null ? student.height : 'N/A'}"></td>
+                            <td th:text="${student != null && student.hair_colour != null ? student.hair_colour : 'N/A'}"></td>
+                            <td th:text="${student != null && student.gpa != null ? student.gpa : 'N/A'}"></td>
+                        </tr> -->
+                        <td th:text = "${student.name}"></td>
+                        <td th:text = "${student.weight}"></td>
+                        <td th:text = "${student.height}"></td>
+                        <td th:text = "${student.hair_colour}"></td>
+                        <td th:text = "${student.gpa}"></td>
+                    </tr>
+                </table>
+            </div>
+        </main>
+        <footer>
+            Copyright &copy; 2024. Created by William Chan.
+        </footer>
+    </div>
+</body>
+</html>

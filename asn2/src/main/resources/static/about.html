@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>StudTrack - Student Tracking App</title>
+</head>
+<body>
+    <div class = "container">
+        <header>
+            <h1 title = "StudTrack">StudTrack</h1>
+            <nav>
+                <ul>
+                    <!-- <li><button onclick="window.location.href = '/home'">Home</button></li>
+                    <li><button onclick="window.location.href = '/students'">Students</button></li>
+                    <li><button onclick="window.location.href = '/about'">About</button></li> -->
+                    <a href="/home"><li>Home</li></a>
+                    <a href="/students"><li>Students</li></a>
+                    <a href="/about"><li>About</li></a>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <h2>About this app</h2>
+            <p>I am told to create an app in order to track a group of students. The app can allow whoever to add new students, change student attributes, and delete students.</p>
+
+            <form method = "post">
+                <div>
+                    <input type = "checkbox" id = "criteria1" disabled>
+                    <label for = "criteria1">The ability to add new Students (with corresponding attributes)</label>
+                </div>
+                <div>
+                    <input type = "checkbox" id = "criteria2" disabled>
+                    <label for = "criteria2">The ability to change attributes of any of the Students. A form should be displayed for this feature with the existing attributes already filled in. </label>
+                </div>
+                <div>
+                    <input type = "checkbox" id = "criteria3" disabled>
+                    <label for = "criteria3">The ability to delete any of the Students</label>
+                </div>
+                <div>
+                    <input type = "checkbox" id = "criteria4" disabled>
+                    <label for = "criteria4">The ability to display (draw) all Students currently in the database (including any other information you collect) in the form of rectangles (hint: use a &lt;div&gt; or &lt;span&gt; tag). </label>
+            </form>
+        </main>
+        <footer>
+            Copyright &copy; 2024. Created by William Chan.
+        </footer>
+    </div>
+</body>
+</html>
