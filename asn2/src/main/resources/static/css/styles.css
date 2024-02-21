@@ -1,0 +1,109 @@
+body{
+    background-image: url('../img/rodion-kutsaiev-PEm_sLmJT-w-unsplash-compressed.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.container{
+    max-width: 90%;
+    margin: auto;
+    background-color: aliceblue;
+    border-radius: 10px;
+    padding: 20px;
+
+    /* CSS ANIMATION */
+    position: relative;
+    top: 30px;
+    animation-name: appear;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes appear{
+    0%{
+        top: 30px;
+        opacity: 0;
+    }
+    100%{
+        top: 0;
+        opacity: 1;
+    }
+}
+
+.container header h1{
+    /* CSS TRANSITION */
+    transition-property: all;
+    transition-duration: 0.5s;
+}
+
+.container header h1:hover{
+    font-size: 2.1rem;
+    cursor: pointer;
+}
+
+/* NAV */
+nav ul{
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+
+@media (min-width: 768px){
+    .container{
+        max-width: 80%;
+    }
+
+    /* CSS GRIDS */
+    header{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* NAV */
+    nav ul{
+        grid-column: 2;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        /* padding: 10px; */
+    }
+
+    /* NAV LI anchors */
+    nav ul a{
+        color: black;
+        text-decoration: none;
+        border: 1px solid black;
+        border-radius: 10px;
+        background-color: rgb(216, 216, 216);
+
+        /* TRANSITION */
+        transition-property: all;
+        transition-duration: 0.5s;
+    }
+
+    nav ul a:hover{
+        background-color: rgb(129, 129, 129);
+    }
+
+    nav ul a li{
+        padding: 15px;
+    }
+
+    /*!  NAV BUTTONS */
+    /* nav ul li button{
+        width: 90%;
+        max-width: 150px;
+        border-radius: 10px;
+    }
+
+    nav ul li button:hover{
+        cursor:pointer;
+    } */
+
+    /* Header h1 */
+    header h1{
+        grid-column: 1;
+        text-align: left;
+    }
+}
