@@ -79,13 +79,22 @@ public class StudentController {
         return "students/addedStudent";
     }
 
+    // Must keep it at PostMapping. If you use DeleteMapping, HTML page will not send method post
     @PostMapping("/students/removeStudent")
     public String removeStudent(@RequestParam Map<String, String> removeStudent, HttpServletResponse response){
         System.out.println("REMOVE student");
         String removeName = removeStudent.get("name");
-        studentRepo.removeStudentByName(removeName);
-        response.setStatus(201);
-        return "students/removedStudent";
+        List<Student> theStudents = studentRepo.findByName(removeName); // Finds the student by name
+        // System.out.println("Show students!");
+        // System.out.println(theStudents.get(0).getName());
+        //! If there are no matches, then return a 404
+        if (!theStudents.isEmpty()){
+            System.out.println("Removing student");
+            studentRepo.deleteByName(removeName);
+            return "students/removedStudent";
+        }
+        // response.setStatus(201);
+        return "students/notFound";
     }
 
 }
