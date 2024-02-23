@@ -10,7 +10,7 @@
 <body>
     <div class = "container">
         <header>
-            <h1 title = "StudTrack">StudTrack</h1>
+            <h1 title = "StudTrack"><a href = "/">StudTrack</a></h1>
             <nav>
                 <ul>
                     <!-- <li><button onclick="window.location.href = '/home'">Home</button></li>
@@ -23,10 +23,11 @@
             </nav>
         </header>
         <main>
-            <h2>List of Students</h2>
+            <!-- <h2>List of Students</h2>
             <div id = "listStudents" style = "overflow-x: auto;">
                 <table>
                     <tr>
+                        <th>#</th>
                         <th>Name</th>
                         <th>Weight</th>
                         <th>Height</th>
@@ -34,27 +35,7 @@
                         <th>GPA</th>
                     </tr>
                     <tr th:each = "student : ${stu}">
-                        <!-- <tr th:if = "${student.name == null} && ${student.weight == null} && ${student.height == null} && ${student.hair_colour == null} && ${student.gpa == null}">
-                            <td>N/A</td>
-                            <td>N/A</td>
-                            <td>N/A</td>
-                            <td>N/A</td>
-                            <td>N/A</td>
-                        </tr>
-                        <tr th:else = "${student.name != null} && ${student.weight != null} && ${student.height != null} && ${student.hair_colour != null} && ${student.gpa != null}">
-                            <td th:text = "${student.name}"></td>
-                            <td th:text = "${student.weight}"></td>
-                            <td th:text = "${student.height}"></td>
-                            <td th:text = "${student.hair_colour}"></td>
-                            <td th:text = "${student.gpa}"></td>
-                        </tr> -->
-                        <!-- <tr>
-                            <td th:text="${student != null && student.name != null ? student.name : 'N/A'}"></td>
-                            <td th:text="${student != null && student.weight != null ? student.weight : 'N/A'}"></td>
-                            <td th:text="${student != null && student.height != null ? student.height : 'N/A'}"></td>
-                            <td th:text="${student != null && student.hair_colour != null ? student.hair_colour : 'N/A'}"></td>
-                            <td th:text="${student != null && student.gpa != null ? student.gpa : 'N/A'}"></td>
-                        </tr> -->
+                        <td th:text = "${student.uid}"></td>
                         <td th:text = "${student.name}"></td>
                         <td th:text = "${student.weight}"></td>
                         <td th:text = "${student.height}"></td>
@@ -62,7 +43,47 @@
                         <td th:text = "${student.gpa}"></td>
                     </tr>
                 </table>
-            </div>
+            </div> -->
+            <h2>Add a New Student</h2>
+            <form id = "addStudent" action = "/students/addStudent" method = "post">
+                <div>
+                    <input type = "text" id = "name" name = "name" placeholder = "Name">
+                </div>
+                <div>
+                    <input type = "number" id = "weight" name = "weight" placeholder = "Weight">
+                </div>
+                <div>
+                    <input type = "number" id = "height" name = "height" placeholder = "Height">
+                </div>
+                <div>
+                    <input type = "text" id = "hair_colour" name = "hair_colour" placeholder = "Hair Colour">
+                </div>
+                <div>
+                    <input type = "number" id = "gpa" name = "gpa" placeholder = "GPA">
+                </div>
+                <div>
+                    <input type = "submit" value = "Add Student" title = "Submit">
+                    <!-- <input type = "button" value = "View Students" title = "View Students"> -->
+                </div>
+            </form>
+            <h2>Remove a Student</h2>
+            <form id = "removeStudent" action = "/students/removeStudent" method = "post">
+                <div>
+                    <input type = "text" id = "name" name = "name" placeholder = "Name">
+                </div>
+                <div>
+                    <input type = "submit" value = "Remove Student" title = "Submit">
+                </div>
+            </form>
+            <h2>Edit Student Attributes</h2>
+            <form id = "editStudent" action = "/students/editStudent" method = "post">
+                <div>
+                    <input type = "text" id = "name" name = "name" placeholder = "Name">
+                </div>
+                <div>
+                    <input type = "submit" value = "Edit Student" title = "Submit">
+                </div>
+            </form>
         </main>
         <footer>
             Copyright &copy; 2024. Created by William Chan.

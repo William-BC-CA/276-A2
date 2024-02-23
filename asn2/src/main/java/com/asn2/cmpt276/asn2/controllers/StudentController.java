@@ -19,6 +19,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @Controller
 public class StudentController {
+    // TODO: Figure out workflow to show DB data on webpage
 
     @Autowired
     private StudentRepository studentRepo;
@@ -62,18 +63,29 @@ public class StudentController {
     //     }
     // }
 
-    @PostMapping("/users/addStudent")
-    public String addUser(@RequestParam Map<String, String> newStudent, HttpServletResponse response){
+    @PostMapping("/students/addStudent")
+    public String addStudent(@RequestParam Map<String, String> newStudent, HttpServletResponse response){
         System.out.println("ADD student");
         String newName = newStudent.get("name");
+        System.out.println("ERROR?");
         double newWeight = Double.parseDouble(newStudent.get("weight"));
         double newHeight = Double.parseDouble(newStudent.get("height"));
+        System.out.println("ERROR NOW?"); //Yes
         String newHairColour = newStudent.get("hair_colour");
         double newGpa = Double.parseDouble(newStudent.get("gpa"));
         // int newSize = Integer.parseInt(newStudent.get("size"));
         studentRepo.save(new Student(newName,newWeight, newHeight, newHairColour, newGpa)); // Does the insert command
         response.setStatus(201);
-        return "users/addedStudent";
+        return "students/addedStudent";
+    }
+
+    @PostMapping("/students/removeStudent")
+    public String removeStudent(@RequestParam Map<String, String> removeStudent, HttpServletResponse response){
+        System.out.println("REMOVE student");
+        String removeName = removeStudent.get("name");
+        studentRepo.removeStudentByName(removeName);
+        response.setStatus(201);
+        return "students/removedStudent";
     }
 
 }

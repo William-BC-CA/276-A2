@@ -54,6 +54,11 @@ body{
     cursor: pointer;
 }
 
+.container header h1 a{
+    text-decoration: none;
+    color: black;
+}
+
 /* Paragraph Config */
 p{
     text-align: justify;
@@ -120,6 +125,51 @@ nav ul a li{
     text-align: center;
 }
 
+/* Add Student Config */
+#addStudent, #removeStudent, #editStudent, #listStudents{
+    /* margin: auto; */
+    text-align: center;
+}
+
+#addStudent div, #removeStudent div, #editStudent div{
+    margin-top: 20px;
+}
+
+#addStudent div input, #removeStudent div input, #editStudent div input{
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid black;
+    font-family: 'Kdam Thmor Pro';
+}
+
+#addStudent div input[value = "Add Student"], #removeStudent div input[value = "Remove Student"], #editStudent div input[value = "Edit Student"]{
+    font-weight: bold;
+    background-color: #11DA8E;
+    border-radius: 30px;
+
+    /* TRANSITION */
+    transition-property: all;
+    transition-duration: 0.3s;
+}
+
+#removeStudent div input[value = "Remove Student"]{
+    background-color: rgb(189, 0, 0);
+    color: white;
+}
+
+#editStudent div input[value = "Edit Student"]{
+    background-color: #FFD700;
+    color: black;
+}
+
+#addStudent div input[value = "Add Student"]:hover, #removeStudent div input[value = "Remove Student"]:hover, #editStudent div input[value = "Edit Student"]:hover{
+    cursor: pointer;
+    transform: scale(1.1, 1.1);
+}
+
+#addStudent div input[value = "Add Student"]:active, #removeStudent div input[value = "Remove Student"]:active, #editStudent div input[value = "Edit Student"]:active{
+    transform: scale(0.9, 0.9);
+}
 
 @media (min-width: 768px){
     .container{
