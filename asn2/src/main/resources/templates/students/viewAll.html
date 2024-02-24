@@ -42,6 +42,12 @@
                     </tr>
                 </table>
             </div>
+            <div th:each = "student: ${stu}">
+                <div class = "rect" th:style= "'color: ' + ${student.hair_colour} + '; width: ' + ${student.weight} + 'px; height: ' + ${student.height} + 'px;'">
+                    <p class = "student-info" th:text = "${student.name}"></p>
+                    <p class = "student-info" th:text = "${student.gpa}"></p>
+                </div>
+            </div>
             <div>
                 <input type = "button" value = "Go Back" title = "Previous page" onclick = "history.back()">
             </div>
