@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="../../static/css/styles.css"> -->
+    <link rel="stylesheet" th:href="@{/css/styles.css}"> <!-- You must get it from relative path with Thymeleaf according to CoPilot-->
+    <title>StudTrack - Student Tracking App</title>
+</head>
+<body>
+    <div class = "container">
+        <header>
+            <h1 title = "StudTrack"><a href = "/">StudTrack</a></h1>
+        </header>
+        <main>
+            <h2>List of Students</h2>
+            <div id = "listStudents" style = "overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Weight</th>
+                        <th>Height</th>
+                        <th>Hair Colour</th>
+                        <th>GPA</th>
+                    </tr>
+                    <tr th:each = "student : ${stu}">
+                        <td th:text = "${student.uid}"></td>
+                        <td th:text = "${student.name}"></td>
+                        <td th:text = "${student.weight}"></td>
+                        <td th:text = "${student.height}"></td>
+                        <td th:text = "${student.hair_colour}"></td>
+                        <td th:text = "${student.gpa}"></td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <input type = "button" value = "Go Back" title = "Previous page" onclick = "history.back()">
+            </div>
+        </main>
+        <footer>
+            Copyright &copy; 2024. Created by William Chan.
+        </footer>
+</body>
+</html>

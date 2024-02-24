@@ -10,7 +10,7 @@
 <body>
     <div class = "container">
         <header>
-            <h1 title = "StudTrack">StudTrack</h1>
+            <h1 title = "StudTrack"><a href = "/">StudTrack</a></h1>
             <nav>
                 <ul>
                     <!-- <li><button onclick="window.location.href = '/home'">Home</button></li>
@@ -28,20 +28,29 @@
 
             <form method = "post">
                 <div>
-                    <input type = "checkbox" id = "criteria1" disabled>
+                    <input type = "checkbox" id = "criteria1" disabled checked>
                     <label for = "criteria1">The ability to add new Students (with corresponding attributes)</label>
                 </div>
                 <div>
-                    <input type = "checkbox" id = "criteria2" disabled>
+                    <input type = "checkbox" id = "criteria2" disabled checked>
                     <label for = "criteria2">The ability to change attributes of any of the Students. A form should be displayed for this feature with the existing attributes already filled in. </label>
                 </div>
                 <div>
-                    <input type = "checkbox" id = "criteria3" disabled>
+                    <input type = "checkbox" id = "criteria3" disabled checked>
                     <label for = "criteria3">The ability to delete any of the Students</label>
+                </div>
+                <div>
+                    <input type = "checkbox" id = "criteria4-1" disabled checked>
+                    <label for = "criteria4-1">Get table to fetch all Students currently in the database (including any other information you collect)</label>
                 </div>
                 <div>
                     <input type = "checkbox" id = "criteria4" disabled>
                     <label for = "criteria4">The ability to display (draw) all Students currently in the database (including any other information you collect) in the form of rectangles (hint: use a &lt;div&gt; or &lt;span&gt; tag). </label>
+                </div>
+                <div>
+                    <input type = "checkbox" id = "criteria5" disabled checked>
+                    <label for = "criteria5">Deploy to Render successfully.</label>
+                </div>
             </form>
         </main>
         <footer>

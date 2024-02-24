@@ -10,7 +10,7 @@
 <body>
     <div class = "container">
         <header>
-            <h1 title = "StudTrack">StudTrack</h1>
+            <h1 title = "StudTrack"><a href = "/">StudTrack</a></h1>
             <nav>
                 <ul>
                     <!-- <li><button onclick="window.location.href = '/home'">Home</button></li>
@@ -23,48 +23,20 @@
             </nav>
         </header>
         <main>
-            <h2>List of Students</h2>
-            <div id = "listStudents" style = "overflow-x: auto;">
-                <table>
-                    <tr>
-                        <th>Name</th>
-                        <th>Weight</th>
-                        <th>Height</th>
-                        <th>Hair Colour</th>
-                        <th>GPA</th>
-                    </tr>
-                    <tr th:each = "student : ${stu}">
-                        <!-- <div th:switch = "${student.name}">
-                            <td th:case = "''">N/A</td>
-                        </div> -->
-                        <!-- <tr th:if = "${student.name == null} && ${student.weight == null} && ${student.height == null} && ${student.hair_colour == null} && ${student.gpa == null}">
-                            <td>N/A</td>
-                            <td>N/A</td>
-                            <td>N/A</td>
-                            <td>N/A</td>
-                            <td>N/A</td>
-                        </tr>
-                        <tr th:else = "${student.name != null} && ${student.weight != null} && ${student.height != null} && ${student.hair_colour != null} && ${student.gpa != null}">
-                            <td th:text = "${student.name}"></td>
-                            <td th:text = "${student.weight}"></td>
-                            <td th:text = "${student.height}"></td>
-                            <td th:text = "${student.hair_colour}"></td>
-                            <td th:text = "${student.gpa}"></td>
-                        </tr> -->
-                        <!-- <tr>
-                            <td th:text="${student != null && student.name != null ? student.name : 'N/A'}"></td>
-                            <td th:text="${student != null && student.weight != null ? student.weight : 'N/A'}"></td>
-                            <td th:text="${student != null && student.height != null ? student.height : 'N/A'}"></td>
-                            <td th:text="${student != null && student.hair_colour != null ? student.hair_colour : 'N/A'}"></td>
-                            <td th:text="${student != null && student.gpa != null ? student.gpa : 'N/A'}"></td>
-                        </tr> -->
-                        <td th:text = "${student.name}"></td>
-                        <td th:text = "${student.weight}"></td>
-                        <td th:text = "${student.height}"></td>
-                        <td th:text = "${student.hair_colour}"></td>
-                        <td th:text = "${student.gpa}"></td>
-                    </tr>
-                </table>
+            <h2>Choose One of the Following Options:</h2>
+            <div class = "studentChoose">
+                <div>
+                    <input type = "button" value = "Add Student" title = "Add a Student" onclick = "window.location.href='/studentAdd.html'">
+                </div>
+                <div>
+                    <input type = "button" value = "Remove Student" title = "Remove a Student" onclick = "window.location.href='/studentRemove.html'">
+                </div>
+                <div>
+                    <input type = "button" value = "Edit Student" title = "Edit a Student" onclick = "window.location.href='/studentEdit.html'">
+                </div>
+                <div>
+                    <input type = "button" value = "View Students" title = "View Students" onclick = "window.location.href = '/students/viewAll'">
+                </div>
             </div>
         </main>
         <footer>

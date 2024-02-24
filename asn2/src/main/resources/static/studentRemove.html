@@ -11,23 +11,23 @@
     <div class = "container">
         <header>
             <h1 title = "StudTrack"><a href = "/">StudTrack</a></h1>
-            <nav>
-                <ul>
-                    <!-- <li><button onclick="window.location.href = '/home'">Home</button></li>
-                    <li><button onclick="window.location.href = '/students'">Students</button></li>
-                    <li><button onclick="window.location.href = '/about'">About</button></li> -->
-                    <a href="/home"><li>Home</li></a>
-                    <a href="/students"><li>Students</li></a>
-                    <a href="/about"><li>About</li></a>
-                </ul>
-            </nav>
         </header>
         <main>
-            <p>Hello World!</p>
+            <h2>Remove a Student</h2>
+            <form id = "removeStudent" action = "/students/removeStudent" method = "post">
+                <div>
+                    <input type = "text" id = "name" name = "name" placeholder = "Name">
+                </div>
+                <div>
+                    <input type = "submit" value = "Remove Student" title = "Submit">
+                </div>
+            </form>
+            <div>
+                <input type = "button" value = "Go Back" title = "Previous page" onclick = "history.back()">
+            </div>
         </main>
         <footer>
             Copyright &copy; 2024. Created by William Chan.
         </footer>
-    </div>
 </body>
 </html>
