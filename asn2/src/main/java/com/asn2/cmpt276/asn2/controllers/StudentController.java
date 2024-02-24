@@ -23,7 +23,7 @@ public class StudentController {
 
     @Autowired
     private StudentRepository studentRepo;
-    @GetMapping("/students/view")
+    @GetMapping("/students/viewAll")
     public String getAllStudents(Model model){
         System.out.println("Getting all students");
         List<Student> students = studentRepo.findAll();

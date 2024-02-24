@@ -23,67 +23,21 @@
             </nav>
         </header>
         <main>
-            <!-- <h2>List of Students</h2>
-            <div id = "listStudents" style = "overflow-x: auto;">
-                <table>
-                    <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Weight</th>
-                        <th>Height</th>
-                        <th>Hair Colour</th>
-                        <th>GPA</th>
-                    </tr>
-                    <tr th:each = "student : ${stu}">
-                        <td th:text = "${student.uid}"></td>
-                        <td th:text = "${student.name}"></td>
-                        <td th:text = "${student.weight}"></td>
-                        <td th:text = "${student.height}"></td>
-                        <td th:text = "${student.hair_colour}"></td>
-                        <td th:text = "${student.gpa}"></td>
-                    </tr>
-                </table>
-            </div> -->
-            <h2>Add a New Student</h2>
-            <form id = "addStudent" action = "/students/addStudent" method = "post">
+            <h2>Choose One of the Following Options:</h2>
+            <div class = "studentChoose">
                 <div>
-                    <input type = "text" id = "name" name = "name" placeholder = "Name">
+                    <input type = "button" value = "Add Student" title = "Add a Student" onclick = "window.location.href='/studentAdd.html'">
                 </div>
                 <div>
-                    <input type = "number" id = "weight" name = "weight" placeholder = "Weight">
+                    <input type = "button" value = "Remove Student" title = "Remove a Student" onclick = "window.location.href='/studentRemove.html'">
                 </div>
                 <div>
-                    <input type = "number" id = "height" name = "height" placeholder = "Height">
+                    <input type = "button" value = "Edit Student" title = "Edit a Student" onclick = "window.location.href='/studentEdit.html'">
                 </div>
                 <div>
-                    <input type = "text" id = "hair_colour" name = "hair_colour" placeholder = "Hair Colour">
+                    <input type = "button" value = "View Students" title = "View Students" onclick = "window.location.href = '/students/viewAll'">
                 </div>
-                <div>
-                    <input type = "number" id = "gpa" name = "gpa" placeholder = "GPA">
-                </div>
-                <div>
-                    <input type = "submit" value = "Add Student" title = "Submit">
-                    <!-- <input type = "button" value = "View Students" title = "View Students"> -->
-                </div>
-            </form>
-            <h2>Remove a Student</h2>
-            <form id = "removeStudent" action = "/students/removeStudent" method = "post">
-                <div>
-                    <input type = "text" id = "name" name = "name" placeholder = "Name">
-                </div>
-                <div>
-                    <input type = "submit" value = "Remove Student" title = "Submit">
-                </div>
-            </form>
-            <h2>Edit Student Attributes</h2>
-            <form id = "editStudent" action = "/students/editStudent" method = "post">
-                <div>
-                    <input type = "text" id = "name" name = "name" placeholder = "Name">
-                </div>
-                <div>
-                    <input type = "submit" value = "Edit Student" title = "Submit">
-                </div>
-            </form>
+            </div>
         </main>
         <footer>
             Copyright &copy; 2024. Created by William Chan.
