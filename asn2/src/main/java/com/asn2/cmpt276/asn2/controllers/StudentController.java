@@ -16,10 +16,11 @@ import com.asn2.cmpt276.asn2.models.StudentRepository;
 
 import jakarta.servlet.http.HttpServletResponse;
 // import jakarta.servlet.http.HttpSession;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @Controller
 public class StudentController {
-    // TODO: Figure out workflow to show DB data on webpage
 
     @Autowired
     private StudentRepository studentRepo;
@@ -96,5 +97,34 @@ public class StudentController {
         // response.setStatus(201);
         return "students/notFound";
     }
+
+    @PostMapping("/students/editStudent")
+    public String editStudent(@RequestParam Map<String, String> editsStudent, HttpServletResponse response){
+        System.out.println("EDIT student");
+        String oldName = editsStudent.get("name");
+        String newName = editsStudent.get("newName");
+        String newWeight = editsStudent.get("newWeight");
+        String newHeight = editsStudent.get("newHeight");
+        String newHairColour = editsStudent.get("new_hair_colour");
+        String newGpa = editsStudent.get("newGPA");
+        List<Student> theStudents = studentRepo.findByName(oldName); // Finds the student by name
+        // System.out.println("Show students!");
+        // System.out.println(theStudents.get(0).getName());
+        //! If there are no matches, then return a 404
+        if (!theStudents.isEmpty()){
+            System.out.println("Modifying student");
+            // TODO: Implement modification of student
+            theStudents.get(0).setName(newName);
+            theStudents.get(0).setWeight(Double.parseDouble(newWeight));
+            theStudents.get(0).setHeight(Double.parseDouble(newHeight));
+            theStudents.get(0).setHair_colour(newHairColour);
+            theStudents.get(0).setGpa(Double.parseDouble(newGpa));
+            studentRepo.save(theStudents.get(0)); // Done by CoPilot, save to specific entry of List
+            return "students/editedStudent";
+        }
+        // response.setStatus(201);
+        return "students/notFound";
+    }
+    
 
 }
