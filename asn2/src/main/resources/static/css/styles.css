@@ -202,6 +202,10 @@ nav ul a li{
         transform: translateY(10%);
     }
 
+    body{
+        padding-bottom: 200px;
+    }
+
     /* CSS GRIDS */
     header{
         display: grid;
