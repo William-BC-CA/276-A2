@@ -1,0 +1,5 @@
+1. The URL of your web app, this is where we’ll be able to play around with your application:
+two76-a2-prea.onrender.com/home.html
+
+2. Your Github link, this is where we can view your Spring project code, your progress and the time of submission
+https://github.com/William-BC-CA/276-A2
