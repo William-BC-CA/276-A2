@@ -209,11 +209,12 @@ nav ul a li{
 @media (min-width: 768px){
     .container{
         max-width: 65%;
-        transform: translateY(10%);
+        /* transform: translateY(10%); */
+        margin-top: 5%;
     }
 
     body{
-        padding-bottom: 200px;
+        padding-bottom: 50px;
     }
 
     /* CSS GRIDS */
