@@ -1,6 +1,6 @@
 # 276-A2
 
-The name of the app is called "StudTrack". It has one purpose. It keeps track of all students.
+The name of the app is called "StudTrack". It has one purpose. It keeps track and manage all students.
 
 ## Features
 You can add, edit, or delete students. You can also view all students.
