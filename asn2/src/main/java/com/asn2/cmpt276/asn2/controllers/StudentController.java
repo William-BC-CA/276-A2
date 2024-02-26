@@ -19,6 +19,7 @@ import jakarta.servlet.http.HttpServletResponse;
 @Controller
 public class StudentController {
 
+    // Fetches all students from the database
     @Autowired
     private StudentRepository studentRepo;
     @GetMapping("/students/viewAll")
@@ -29,34 +30,37 @@ public class StudentController {
         return "students/viewAll";
     }
 
+    // Redirects the root to the home page
     @GetMapping("/")
     public RedirectView process(){
         return new RedirectView("home.html");
     }
 
+    // Redirects /home to the home page
     @GetMapping("/home")
     public RedirectView processHome(){
         return new RedirectView("home.html");
     }
 
+    // Redirects /students to the students page
     @GetMapping("/students")
     public RedirectView processStudents(){
         return new RedirectView("students.html");
     }
 
+    // Redirects /about to the about page
     @GetMapping("/about")
     public RedirectView processAbout(){
         return new RedirectView("about.html");
     }
 
+    // Adds the student to the database
     @PostMapping("/students/addStudent")
     public String addStudent(@RequestParam Map<String, String> newStudent, HttpServletResponse response){
         System.out.println("ADD student");
         String newName = newStudent.get("name");
-        System.out.println("ERROR?");
         double newWeight = Double.parseDouble(newStudent.get("weight"));
         double newHeight = Double.parseDouble(newStudent.get("height"));
-        System.out.println("ERROR NOW?"); //Yes
         String newHairColour = newStudent.get("hair_colour");
         double newGpa = Double.parseDouble(newStudent.get("gpa"));
         studentRepo.save(new Student(newName,newWeight, newHeight, newHairColour, newGpa)); // Does the insert command
@@ -65,6 +69,7 @@ public class StudentController {
     }
 
     // Must keep it at PostMapping. If you use DeleteMapping, HTML page will not send method post
+    // Simply removes the student from the database by name
     @PostMapping("/students/removeStudent")
     public String removeStudent(@RequestParam Map<String, String> removeStudent, HttpServletResponse response){
         System.out.println("REMOVE student");
@@ -79,6 +84,7 @@ public class StudentController {
         return "students/notFound";
     }
 
+    // Edits the student by name
     @PostMapping("/students/editStudent")
     public String editStudent(@RequestParam Map<String, String> editsStudent, HttpServletResponse response){
         System.out.println("EDIT student");
@@ -102,6 +108,4 @@ public class StudentController {
         }
         return "students/notFound";
     }
-    
-
 }

@@ -15,5 +15,5 @@ public interface StudentRepository extends JpaRepository<Student, Integer>{
     @Transactional
     @Modifying
     @Query("delete from Student s where s.name = ?1")
-    void deleteByName(String name);
+    void deleteByName(String name); // Deletes the student by name from the database
 }
