@@ -121,22 +121,22 @@ nav ul a li{
 }
 
 /* Add Student Config */
-#addStudent, #removeStudent, #editStudent, #listStudents, .studentChoose, input[value = "Go Back"]{
+#addStudent, #removeStudent, #editStudent, #searchEditStudent, #listStudents, .studentChoose, input[value = "Go Back"]{
     text-align: center;
 }
 
-#addStudent div, #removeStudent div, #editStudent div, .studentChoose div, input[value = "Go Back"]{
+#addStudent div, #removeStudent div, #editStudent div, .studentChoose div, input[value = "Go Back"], #searchEditStudent div{
     margin-top: 20px;
 }
 
-#addStudent div input, #removeStudent div input, #editStudent div input, .studentChoose div input, input[value = "Go Back"]{
+#addStudent div input, #removeStudent div input, #editStudent div input, #searchEditStudent div input, .studentChoose div input, input[value = "Go Back"]{
     padding: 10px;
     border-radius: 20px;
     border: 1px solid black;
     font-family: 'Kdam Thmor Pro';
 }
 
-#addStudent div input[value = "Add Student"], #removeStudent div input[value = "Remove Student"], #editStudent div input[value = "Edit Student"], .studentChoose div input[value = "Add Student"], .studentChoose div input[value = "Remove Student"], .studentChoose div input[value = "Edit Student"], .studentChoose div input[value = "View Students"], input[value = "Go Back"]{
+#addStudent div input[value = "Add Student"], #removeStudent div input[value = "Remove Student"], #editStudent div input[value = "Edit Student"], #searchEditStudent div input[value = "Get Student"], .studentChoose div input[value = "Add Student"], .studentChoose div input[value = "Remove Student"], .studentChoose div input[value = "Edit Student"], .studentChoose div input[value = "View Students"], input[value = "Go Back"]{
     font-weight: bold;
     background-color: #11DA8E;
     border-radius: 30px;
@@ -153,6 +153,11 @@ nav ul a li{
 
 #editStudent div input[value = "Edit Student"], .studentChoose div input[value = "Edit Student"]{
     background-color: #FFD700;
+    color: black;
+}
+
+#searchEditStudent div input[value = "Get Student"]{
+    background-color: rgb(255, 60, 0);
     color: black;
 }
 
@@ -173,6 +178,11 @@ nav ul a li{
 /* Add new attributes h2 */
 #editStudent h2{
     text-align: left;
+}
+
+/* New label fonts */
+#editStudent label{
+    font-family: 'Kdam Thmor Pro';
 }
 
 /* Create rectangle */
