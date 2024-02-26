@@ -2,9 +2,12 @@ package com.asn2.cmpt276.asn2.models;
 
 import jakarta.persistence.*;
 
+
+// Formulates table for the database
 @Entity
 @Table(name = "students")
 public class Student {
+    // Used to create unique id on add student
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int uid;
@@ -14,23 +17,26 @@ public class Student {
     private String hair_colour;
     private double gpa;
     
+    // Constructor
     public Student() {
     }
 
-    public int getUid() {
-        return uid;
-    }
-
-    public void setUid(int uid) {
-        this.uid = uid;
-    }
-
+    // Full constructor
     public Student(String name, double weight, double height, String hair_colour, double gpa) {
         this.name = name;
         this.weight = weight;
         this.height = height;
         this.hair_colour = hair_colour;
         this.gpa = gpa;
+    }
+
+    // Getters and setters
+    public int getUid() {
+        return uid;
+    }
+
+    public void setUid(int uid) {
+        this.uid = uid;
     }
 
     public String getName() {
