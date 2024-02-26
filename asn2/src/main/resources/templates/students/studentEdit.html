@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/styles.css}"> <!-- You must get it from relative path with Thymeleaf according to CoPilot-->
+    <title>StudTrack - Student Tracking App</title>
+    <link rel = "icon" th:href = "@{/img/faviconV2-compressed.jpg}">
+    <meta content="CMPT 276 Assignment 2" property="og:title" />
+    <meta content="This is a Springboot App for managing students!" property="og:description" />
+    <meta content="https://www.276-a2-springboot.williamchan.dev" property="og:url" />
+    <meta content="#B5111B" data-react-helmet="true" name="theme-color" />
+    <meta content="https://www.276-a2-springboot.williamchan.dev/img/faviconV2.ico" property="og:image" />
+</head>
+<body>
+    <div class = "container">
+        <header>
+            <h1 title = "StudTrack"><a href = "/">StudTrack</a></h1>
+        </header>
+        <main>
+            <h2>Modify Attributes</h2>
+            <form id = "editStudent" action = "/students/editStudent" method = "post">
+                <div>
+                    <label for = "newName" title = "New Name">New Name</label>
+                    <input type = "text" id = "newName" name = "newName" placeholder = "New Name" th:value = "${searchedStudent.name}">
+                </div>
+                <div>
+                    <label for = "newWeight" title = "New Weight">New Weight</label>
+                    <input type = "number" id = "newWeight" name = "newWeight" placeholder = "Weight" th:value = "${searchedStudent.weight}">
+                </div>
+                <div>
+                    <label for = "newHeight" title = "New Height">New Height</label>
+                    <input type = "number" id = "newHeight" name = "newHeight" placeholder = "Height" th:value = "${searchedStudent.height}">
+                </div>
+                <div>
+                    <label for = "new_hair_colour" title = "New Hair Colour">New Hair Colour</label>
+                    <input type = "text" id = "new_hair_colour" name = "new_hair_colour" placeholder = "Hair Colour" th:value = "${searchedStudent.hair_colour}">
+                </div>
+                <div>
+                    <label for = "newGPA" title = "New GPA">New GPA</label>
+                    <input type = "number" id = "newGPA" name = "newGPA" placeholder = "GPA" th:value = "${searchedStudent.gpa}">
+                </div>
+                <div>
+                    <input type = "submit" value = "Edit Student" title = "Submit">
+                </div>
+            </form>
+            <div>
+                <input type = "button" value = "Go Back" title = "Previous page" onclick = "history.back()">
+            </div>
+        </main>
+        <footer>
+            Copyright &copy; 2024. Created by William Chan.
+        </footer>
+    </div>
+</body>
+</html>

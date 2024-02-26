@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,10 +23,11 @@ public class StudentController {
     // Fetches all students from the database
     @Autowired
     private StudentRepository studentRepo;
+    private String oldName; // Save the found name for later use
     @GetMapping("/students/viewAll")
     public String getAllStudents(Model model){
         System.out.println("Getting all students");
-        List<Student> students = studentRepo.findAll();
+        List<Student> students = studentRepo.findAll(Sort.by(Sort.Direction.ASC, "uid")); // Find all entries from database but sort them by UID from least to greatest
         model.addAttribute("stu", students);
         return "students/viewAll";
     }
@@ -84,17 +86,30 @@ public class StudentController {
         return "students/notFound";
     }
 
-    // Edits the student by name
+    // Searches for the student by name and fetch attributes, saves to oldName variable for later use
+    @PostMapping("/students/searchEditStudent")
+    public String searchEditStudent(Model model, @RequestParam String name){
+        System.out.println("SEARCH student");
+        List<Student> theStudents = studentRepo.findByName(name); // Finds the student by name
+        if (!theStudents.isEmpty()){
+            model.addAttribute("searchedStudent", theStudents.get(0)); // This really helped me know more about what model is. It saves for Thymeleaf so I can use it later in HTML.
+            oldName = theStudents.get(0).getName();
+            return "students/studentEdit";
+        } else {
+            return "students/notFound";
+        }
+    }
+
+    // Edits the student. Existing attributes are obtained from previous found student by oldName
     @PostMapping("/students/editStudent")
     public String editStudent(@RequestParam Map<String, String> editsStudent, HttpServletResponse response){
         System.out.println("EDIT student");
-        String oldName = editsStudent.get("name");
         String newName = editsStudent.get("newName");
         String newWeight = editsStudent.get("newWeight");
         String newHeight = editsStudent.get("newHeight");
         String newHairColour = editsStudent.get("new_hair_colour");
         String newGpa = editsStudent.get("newGPA");
-        List<Student> theStudents = studentRepo.findByName(oldName); // Finds the student by name
+        List<Student> theStudents = studentRepo.findByName(oldName); // Since we found the user, now we can spit existing attributes when editing the student
         //! If there are no matches, then return not found
         if (!theStudents.isEmpty()){
             System.out.println("Modifying student");
@@ -103,7 +118,7 @@ public class StudentController {
             theStudents.get(0).setHeight(Double.parseDouble(newHeight));
             theStudents.get(0).setHair_colour(newHairColour);
             theStudents.get(0).setGpa(Double.parseDouble(newGpa));
-            studentRepo.save(theStudents.get(0)); // Done by CoPilot, save to specific entry of List
+            studentRepo.save(theStudents.get(0)); // Done by CoPilot, saves to specific entry of List
             return "students/editedStudent";
         }
         return "students/notFound";
